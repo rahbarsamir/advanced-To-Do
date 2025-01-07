@@ -329,7 +329,7 @@ function playsound(track) {
 function searchvalue(list, todo) {
     let output = []
     list.forEach((ele) => {
-        if (ele.title == todo) {
+        if (ele.title.toLowerCase() == todo.toLowerCase()) {
             output.push(ele)
         }
     })
@@ -341,10 +341,16 @@ searchtodo.addEventListener("click", () => {
     // console.log(searchedTodo)
     todolist.innerHTML = ""
 
-    searchedTodo.forEach((Element) => {
-        // console.log("check")
-        todolist.appendChild(createTodo(Element.title, Element.des, Element.date, Element.id))
-    })
+    if(searchedTodo.length>0){
+        searchedTodo.forEach((Element) => {
+            // console.log("check")
+            todolist.appendChild(createTodo(Element.title, Element.des, Element.date, Element.id))
+        })
+    }
+    else{
+        const empty=document.querySelector(".empty")
+        empty.style="opacity:0.8"
+    }
     activeinbox()
     overlay.style.display = "none"
     headeraddtask.style = "pointer-events:all"
