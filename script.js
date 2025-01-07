@@ -113,7 +113,7 @@ todo_form.addEventListener("submit", ((e) => {
     // console.log(complete)
     edittodo()
     clossaddtask()
-
+    document.querySelector(".empty").style="opacity:0"
     complete = document.querySelectorAll(".complete")
     deletetodo()
     activeinbox()
@@ -121,10 +121,13 @@ todo_form.addEventListener("submit", ((e) => {
 }))
 
 function loadtodo() {
+    
     try {
         data = list
         const todayDate = getTodayDate()
         if (data) {
+            emptyTodo()
+
             data.forEach(Element => {
                 todolist.appendChild(createTodo(Element.title, Element.des, Element.date, Element.id))
                 if (todayDate == Element.date) {
@@ -137,7 +140,6 @@ function loadtodo() {
         }
 
     } catch (error) {
-
     }
     //    for(let i=0;i<data.length;i++){
     //     console.log(data[i])
@@ -217,7 +219,7 @@ deletetodo()
 // console.log(complete)
 function deletetodo() {
     if (complete) {
-        console.log("complete")
+        // console.log("complete")
 
         complete.forEach((e) => {
             // console.log(e)
@@ -242,7 +244,7 @@ function deletetodo() {
                             removefromupcoming(todo)
                             removefrominbox(todo)
                             // todolist.removeChild(e.target.parentElement.parentElement)
-                            console.log(e.target.parentElement.parentElement)
+                            // console.log(e.target.parentElement.parentElement)
                             // todayList.removeChild(e.target.parentElement.parentElement)
                             // // location.reload()
                             // console.log(list)
@@ -252,11 +254,13 @@ function deletetodo() {
                 // console.log(list)
                 // console.log("deleted")
 
-
+                emptyTodo()
+                // console.log(list)
 
             }))
         })
     }
+    
 }
 
 
@@ -446,7 +450,7 @@ function removefromtoday(id) {
             todayList.removeChild(Element)
         }
         else {
-            console.log("error todaylisst")
+            // console.log("error todaylisst")
         }
     })
 }
@@ -456,7 +460,7 @@ function removefromupcoming(id) {
             upcominglist.removeChild(Element)
         }
         else {
-            console.log("error todaylisst")
+            // console.log("error todaylisst")
         }
     })
 }
@@ -466,7 +470,8 @@ function removefrominbox(id) {
             todolist.removeChild(Element)
         }
         else {
-            console.log("error todaylisst")
+            // console.log("error todaylisst")
+
         }
     })
 }
@@ -496,4 +501,11 @@ function otheredittask(child, title, des, date, id) {
             Element.childNodes[2].childNodes[2].value = date
         }
     })
+}
+
+function emptyTodo(){
+    if(list.length==0){
+        const empty=document.querySelector(".empty")
+        empty.style="opacity:0.8"
+    }
 }
