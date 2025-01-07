@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="screen">
+        <div class="header">
+            <h1>to-do</h1>
+            <div class="options">
+                <div id="headeraddtask" class="option">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3 >add task</h3>
+                </div>
+                <div id="header-search" class="option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h3>search</h3>
+                </div>
+                <div id="inbox" class="option active">
+                    <i class="fa-solid fa-inbox"></i>
+                    <h3>inbox</h3>
+                </div>
+                <div id="headerToday" class="option">
+                    <i class="fa-solid fa-calendar-week"></i>
+                    <h3>today</h3>
+                </div>
+                <div id="headerupcoming"  class="option">
+                    <i class="fa-solid fa-square-binary"></i>
+                    <h3>upcoming</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div id="overlay"></div>
+            <div id="addtodo" class="addtodo">
+                <form id="todo-form" action="">
+                    <i id="cross-addtodo" class="fa-solid fa-square-xmark"></i>
+                    <input id="title" type="text" required placeholder="To - Do Title">
+                    <input id="description" required type="text" placeholder="description">
+                    <label for="dateInput">Pick a Date:</label>
+                    <input id="dateinput" required type="date" id="dateInput">
+                    <button type="submit" id="add-task-btn">add task</button>
+                </form>
+            </div>
+            <div id="inboxSection" class="inbox">
+                <div class="toptitle activetoptitle">
+                    <h1>inbox</h1>
+                </div>
+                <div id="list" class="list">
+                    <!-- <div class="todo">
+                        <div class="leftside">
+                            <input type="checkbox" name="" id="">
+                        </div>
+                        <div class="rightside">
+                      
+                            <input type="text" class="titlefield" disabled value="headline">
+                            <input type="text" class="descriptionfield" value="description">
+                          
+                            <div class="date">
+                                
+                                <input type="date" name="" dis value="2002-06-10" id="">
+                            </div>
+                        </div>
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </div> -->
+
+
+
+                </div>
+                <div id="addtask" class="addtask">
+                    <i class="fa-solid fa-plus"></i>
+                    <label for="">add task</label>
+                </div>
+                
+            </div>
+            <div class="search">
+                <i id="search-cross" class="fa-regular fa-circle-xmark"></i>
+                <div class="searchbox">
+                    <i id="searchtodo" class="fa-solid fa-magnifying-glass"></i>
+                    <input id="search-input" type="text" placeholder="search or type a command....">
+                </div>
+            </div>
+            <div id="todaySection">
+                
+                <div class="toptitle">
+                    <h1>Today</h1>
+                </div>
+                <div class="todayList">
+                    
+                </div>
+            </div>
+            <div id="upcoming">
+                <div class="toptitle">
+                    <h1>upcoming</h1>
+                </div>
+                <div class="upcomingList">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>

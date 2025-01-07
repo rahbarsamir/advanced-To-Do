@@ -1,0 +1,478 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+:root{
+    --stylefont:"Playwrite GB S", serif;
+    --normalfont:"Ubuntu", serif
+}
+.screen{
+    display: flex;
+    height: 100%;
+    /* width: 100vw; */
+    background-color:aqua;
+}
+.header{
+    
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex: 0 0 18%;
+    background-color: #FCFAF8;
+    box-shadow:5px 10px 50px 5px rgba(0, 0, 0,0.1);
+}
+.header h1{
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: "Playwrite GB S", serif;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 40px;
+}
+/* .header h3{
+    cursor: pointer;
+} */
+.container{
+    height: 100vh;
+    flex: 0 0 82%;
+    /* box-shadow: 5px 5px 10px 5px rgba(0, 0, 0,1); */
+    background-color: #ffff;
+    position: relative;
+    overflow:hidden;
+}
+#overlay{
+    
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 5;
+}
+.options{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    width: 100%;
+    padding-left: 30px;
+    display: flex;
+    
+    flex-direction: column;
+
+}
+.selected{
+    display: block;
+}
+.active{
+    background-color: #fdebe0;
+}
+.option{
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+    transition: all 0.5s ease;
+    font-family: "Playwrite GB S", serif;
+    /* font-family: "Ubuntu", serif; */
+    /* font-family: "Montserrat", serif; */
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.7);
+    font-style: normal;
+    /* font-style: italic; */
+    font-size: 12px;
+}
+.option h3{
+    text-transform: capitalize;
+}
+.option:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.inbox{
+    overflow-y:auto;
+    transition: all 0.5s ease;
+    /* display: none; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0 0 150px;
+}
+.inbox h1{
+    
+    text-transform: capitalize;
+    font-family: "Playwrite GB S", serif;
+    
+    
+}
+.list{
+    margin-top: 30px;
+    margin-left: 30px;
+    /* min-height: 50vh; */
+   
+}
+/* .list::after{
+    content: " ";
+    margin-top: 20px;
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+} */
+.todo{
+    position: relative;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: "Ubuntu", serif;
+    display: flex;
+    gap: 10px;
+    width: 30vw;
+    /* background-color: #0b4339; */
+    margin-bottom: 25px;
+
+
+
+     
+}
+.todo >i{
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    cursor: pointer;
+}
+.todo .leftside{
+    flex: 0 0 5%;
+    
+}
+.activetoptitle{
+    position:fixed;
+}
+.toptitle{
+    height: 100px;
+    display: flex;
+    align-items: end;
+    
+    width: 50%;
+    top:0;
+    background: #fff;
+    z-index: 4;
+    text-transform: capitalize;
+    font-family: "Playwrite GB S", serif;
+}
+.leftside input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    border: 2px solid #000;
+}
+
+.leftside input[type="checkbox"]:hover{
+    background-color:#fdebe0;
+}
+.leftside input[type="checkbox"]:checked{
+    background-color:#ffc6a3;
+}
+.todo .rightside{
+    flex: 0 0 95%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.todo .rightside h3{
+    text-transform: capitalize;
+}
+.todo .rightside h5{
+    color: rgba(0, 0, 0, 0.6);
+}
+.todo .rightside .date{
+    color: #ff9757;
+
+    text-transform: capitalize;
+}
+.todo .rightside .date input[type="date"]{
+    color: #ff9757;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 12px;
+    font-family: var(--stylefont);
+    font-weight: 700;
+}
+.inbox .addtask{
+    position: fixed;
+    top: 45%;
+    transform: translateX(-50%);
+    right:12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:var(--normalfont) ;
+    text-transform: capitalize;
+    margin-left: 60px;
+    margin-top: 30px;
+    /* background-color: #105549; */
+    width:150px;
+    padding:15px 10px;
+    border-radius: 5%;
+    cursor: pointer;
+  
+    
+}
+.inbox .addtask:hover label{
+    /* border: 1px solid rgba(0, 0, 0, 0.1); */
+    color: #ff9757;
+}
+
+
+.inbox .addtask i{
+    padding: 2px;
+    color: #ff9757;
+    margin-right: 5px;
+}
+.inbox .addtask label{
+    color: #105549;
+    cursor: pointer;
+    
+}
+.addtodo{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    background: #fff;
+    border-radius: 10px;
+   /* From https://css.glass */
+background: rgba(255, 255, 255, 0.85);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+/* border: 1px solid rgba(255, 255, 255, 0.3); */
+
+}
+.addtodo form{
+    position: relative;
+    width:60vw;
+    height: 30vh;
+    display: inline-flex;
+    flex-direction:column;
+    padding:15px 20px;
+    padding-top: 35px;
+    border-radius: 10px;
+
+    /* border: 1px solid rgba(0, 0, 0, 0.4); */
+
+}
+.addtodo form input[type="text"]{
+    border: none;
+    /* border-bottom:1px solid rgba(0, 0, 0, 0.5) ; */
+    margin-bottom: 15px;
+    text-decoration: non;
+    transition: all 0.5s ease;
+    padding-bottom: 10px;
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+input[type="text"]:focus{
+    border:none;
+    outline: none;
+    font-size: 17px;
+}
+.addtodo form input[type="text"]:first-child::placeholder{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.8);
+}
+.addtodo form input[type="text"]::placeholder{
+    font-family: var(--stylefont);
+}
+.addtodo form input[type=date]{
+    width: 140px;
+    /* background: #ffff; */
+    /* color: #ffff; */
+    outline: none;
+    padding: 10px;
+    border: none;
+    /* cursor: pointer; */
+    background: transparent;
+    font-family: var(--stylefont);
+
+    
+}
+
+.addtodo form label{
+    color: rgba(0, 0, 0, 0.7);
+    font-family: var(--stylefont);
+ 
+}
+.addtodo form button{
+    width: 100px;
+    padding: 10px 20px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #0b4339;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.addtodo form button:hover{
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    background: transparent;
+    color: #000;
+}
+
+.addtodo form i{
+    cursor: pointer;
+    /* background-color:rgba(; */
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    font-size: 25px;
+}
+
+
+.todo .rightside input[type="text"]{
+    border: none;
+    background:transparent;
+    /* border-bottom:1px solid rgba(0, 0, 0, 0.5) ; */
+    /* margin-bottom: 15px; */
+    text-decoration: non;
+    transition: all 0.5s ease;
+    /* font-size: 50px; */
+    
+}
+.rightside input[type="text"]:first-child{
+    font-size: 20px;
+    font-weight: 700;
+
+}
+.rightside input[type="text"]:nth-child(2){
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+
+}
+.save{
+    position: absolute;
+    top: 0;
+    right:0;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+
+.search{
+    /* pointer-events: */
+    z-index: 10;
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 70%;
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.92);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+/* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+.search i{
+    cursor: pointer;
+    position: absolute;
+    top: -80px;
+    right: -50px;
+    font-size: 22px;
+}
+.searchbox{
+    /* width: 70%; */
+    position: relative;
+}
+.search input{
+    background:transparent;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.5s ease;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: none;
+
+}
+.search input:focus{
+
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+}
+.searchbox i{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.7);
+    right: 20px;
+    transform: translateY(-50%);
+
+}
+
+
+#todaySection{
+    overflow-y:auto;
+    transition: all 0.5s ease;
+    /* transform: translateY(150%); */
+    /* display: none; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0 0 150px;
+}
+#todaySection h1{
+    
+    text-transform: capitalize;
+    font-family: "Playwrite GB S", serif;
+    
+}
+.todayList{
+    margin-top: 30px;
+    margin-left: 30px;
+    /* min-height: 50vh; */
+   
+}
+#upcoming{
+    /* overflow-y:auto; */
+    transition: all 0.5s ease;
+    /* transform: translateY(250%); */
+    /* display: none; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 100px 0 0 150px;
+}
+#upcoming h1{
+   
+    text-transform: capitalize;
+    font-family: "Playwrite GB S", serif;
+    
+}
+.upcomingList{
+    margin-top: 30px;
+    margin-left: 30px;
+    /* min-height: 50vh; */
+   
+}
