@@ -32,6 +32,7 @@
     font-weight: 100;
     font-style: italic;
     font-size: 40px;
+    /* font-size: 6vh; */
 }
 /* .header h3{
     cursor: pointer;
@@ -58,7 +59,7 @@
 }
 .options{
     position: absolute;
-    top: 40%;
+    top: 45%;
     transform: translateY(-50%);
     width: 100%;
     padding-left: 30px;
