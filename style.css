@@ -265,7 +265,7 @@ backdrop-filter: blur(8px);
 .addtodo form{
     position: relative;
     width:60vw;
-    height: 30vh;
+    min-height: 30vh;
     display: inline-flex;
     flex-direction:column;
     padding:15px 20px;

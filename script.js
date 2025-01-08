@@ -355,6 +355,8 @@ searchtodo.addEventListener("click", () => {
     overlay.style.display = "none"
     headeraddtask.style = "pointer-events:all"
     search.style.display = "none"
+    edittodo()
+    deletetodo()
 })
 
 
