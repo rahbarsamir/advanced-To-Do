@@ -89,7 +89,7 @@ todo_form.addEventListener("submit", ((e) => {
     const date = document.querySelector("#dateinput").value;
     let id = "f" + Date.now().toString()
     const todayDate = getTodayDate()
-    if (date<todayDate){
+    if (date < todayDate) {
         alert("Sorry we dont have time machine.....")
         return
     }
@@ -113,7 +113,7 @@ todo_form.addEventListener("submit", ((e) => {
     // console.log(complete)
     edittodo()
     clossaddtask()
-    document.querySelector(".empty").style="opacity:0"
+    document.querySelector(".empty").style = "opacity:0"
     complete = document.querySelectorAll(".complete")
     deletetodo()
     activeinbox()
@@ -121,7 +121,7 @@ todo_form.addEventListener("submit", ((e) => {
 }))
 
 function loadtodo() {
-    
+
     try {
         data = list
         const todayDate = getTodayDate()
@@ -150,8 +150,8 @@ function loadtodo() {
 
 function createTodo(title, des, tododate, id) {
 
-   
-    
+
+
     const todo = document.createElement('div')
     todo.setAttribute("class", "todo")
     todo.setAttribute("id", `${id}`)
@@ -260,7 +260,7 @@ function deletetodo() {
             }))
         })
     }
-    
+
 }
 
 
@@ -284,6 +284,11 @@ function edittodo() {
                 const title = e.parentElement.childNodes[2].childNodes[0].value
                 const description = e.parentElement.childNodes[2].childNodes[1].value
                 const date = e.parentElement.childNodes[2].childNodes[2].firstChild.value
+                const todayDate = getTodayDate()
+                if (date < todayDate) {
+                    alert("Sorry we dont have time machine.....")
+                    return
+                }
                 const id = e.parentElement.id
                 if (title && description && date) {
                     playsound("save.mp3")
@@ -341,15 +346,15 @@ searchtodo.addEventListener("click", () => {
     // console.log(searchedTodo)
     todolist.innerHTML = ""
 
-    if(searchedTodo.length>0){
+    if (searchedTodo.length > 0) {
         searchedTodo.forEach((Element) => {
             // console.log("check")
             todolist.appendChild(createTodo(Element.title, Element.des, Element.date, Element.id))
         })
     }
-    else{
-        const empty=document.querySelector(".empty")
-        empty.style="opacity:0.8"
+    else {
+        const empty = document.querySelector(".empty")
+        empty.style = "opacity:0.8"
     }
     activeinbox()
     overlay.style.display = "none"
@@ -361,21 +366,21 @@ searchtodo.addEventListener("click", () => {
 
 
 
-function activeinbox(){
+function activeinbox() {
     todaysection.style = "transform:translateY(0)"
     inboxSection.style = "transform:translateY(0)"
     upcoming.style = "transform:translateY(150%)"
-    todaysection.childNodes[1].setAttribute("class","")
-    inboxSection.childNodes[1].setAttribute("class","toptitle activetoptitle")
-    upcoming.childNodes[1].setAttribute("class","")
-    headerInbox.setAttribute("class","option active")
-    headerToday.setAttribute("class","option")
-    headerupcoming.setAttribute("class","option")
+    todaysection.childNodes[1].setAttribute("class", "")
+    inboxSection.childNodes[1].setAttribute("class", "toptitle activetoptitle")
+    upcoming.childNodes[1].setAttribute("class", "")
+    headerInbox.setAttribute("class", "option active")
+    headerToday.setAttribute("class", "option")
+    headerupcoming.setAttribute("class", "option")
 }
 
 
 headerInbox.addEventListener("click", () => {
-    
+
     activeinbox()
 })
 
@@ -385,14 +390,14 @@ headerToday.addEventListener("click", () => {
     todaysection.style = "transform:translateY(-100%)"
     inboxSection.style = "transform:translateY(-150%)"
     upcoming.style = "transform:translateY(150%)"
-    todaysection.childNodes[1].setAttribute("class","toptitle activetoptitle")
-    upcoming.childNodes[1].setAttribute("class","")
-    inboxSection.childNodes[1].setAttribute("class","")
+    todaysection.childNodes[1].setAttribute("class", "toptitle activetoptitle")
+    upcoming.childNodes[1].setAttribute("class", "")
+    inboxSection.childNodes[1].setAttribute("class", "")
 
-    headerInbox.setAttribute("class","option")
-    headerToday.setAttribute("class","option active")
-    headerupcoming.setAttribute("class","option")
-  
+    headerInbox.setAttribute("class", "option")
+    headerToday.setAttribute("class", "option active")
+    headerupcoming.setAttribute("class", "option")
+
 
 
 
@@ -402,13 +407,13 @@ headerupcoming.addEventListener("click", () => {
     todaysection.style = "transform:translateY(-200%)"
     inboxSection.style = "transform:translateY(-150%)"
     upcoming.style = "transform:translateY(-200%)"
-    upcoming.childNodes[1].setAttribute("class","toptitle activetoptitle")
-    inboxSection.childNodes[1].setAttribute("class","")
-    todaysection.childNodes[1].setAttribute("class","")
+    upcoming.childNodes[1].setAttribute("class", "toptitle activetoptitle")
+    inboxSection.childNodes[1].setAttribute("class", "")
+    todaysection.childNodes[1].setAttribute("class", "")
 
-    headerInbox.setAttribute("class","option")
-    headerToday.setAttribute("class","option")
-    headerupcoming.setAttribute("class","option active")
+    headerInbox.setAttribute("class", "option")
+    headerToday.setAttribute("class", "option")
+    headerupcoming.setAttribute("class", "option active")
 
 })
 
@@ -511,9 +516,9 @@ function otheredittask(child, title, des, date, id) {
     })
 }
 
-function emptyTodo(){
-    if(list.length==0){
-        const empty=document.querySelector(".empty")
-        empty.style="opacity:0.8"
+function emptyTodo() {
+    if (list.length == 0) {
+        const empty = document.querySelector(".empty")
+        empty.style = "opacity:0.8"
     }
 }
